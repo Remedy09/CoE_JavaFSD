@@ -1,0 +1,11 @@
+2025-02-04 08:05:10 - ERROR - File not found: config.txt
+2025-02-04 08:10:00 - WARNING - Low disk space
+2025-02-04 08:20:30 - CRITICAL - Database connection failed
+2025-02-04 08:25:40 - ERROR - Unauthorized access attempt
+2025-02-04 08:35:00 - WARNING - Memory usage high
+2025-02-04 08:40:10 - ERROR - Disk write failure
+
+Log Analysis Summary:
+ERROR: 3 occurrences
+WARNING: 2 occurrences
+CRITICAL: 1 occurrences
