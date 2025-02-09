@@ -10,6 +10,7 @@ class TreeNode {
     }
 }
 
+
 class BinaryTreeSerializer {
 
     public String serialize(TreeNode root) {
