@@ -32,7 +32,7 @@ class Admin {
                     displayAccountant();
                     break;
                 case 3:
-                    System.out.println("Enter accountant id to be deleted");
+                    System.out.println("Enter accountant id to be edited");
                     manipulateAccountant(true, sc.nextInt());
                     break;
                 case 4:
@@ -52,21 +52,26 @@ class Admin {
     private void manipulateAccountant(boolean edit , int id){
         Scanner sc = new Scanner(System.in);
 
-        // Collect user input
-        System.out.print("Enter Accountant Name: ");
-        String name = sc.nextLine();
-
-        System.out.print("Enter Email: ");
-        String email = sc.nextLine();
-
-        System.out.print("Enter Password: ");
-        String password = sc.nextLine();  
         
-        sc.close();
         
         try (Connection con = DataBaseConnection.getConnection()) {
+
+            // Collect user input
+            System.out.print("Enter Accountant Name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter Email: ");
+            String email = sc.nextLine();
+
+            System.out.print("Enter Password: ");
+            String password = sc.nextLine();  
+
+            System.out.print("Enter Phone number: ");
+            String phone = sc.nextLine();
+        
+            // sc.close();
             
-            String query = "" , query1 = "INSERT INTO accountant (name, email, password) VALUES (?, ?, ?)" , query2 = "UPDATE accountant SET name = ?, email = ?, password = ? WHERE id = ?";
+            String query = "" , query1 = "INSERT INTO accountant (name, email, phone, password) VALUES (?, ?, ?, ?)" , query2 = "UPDATE accountant SET name = ?, email = ?, phone = ?, password = ? WHERE id = ?";
             
             if(edit) query = query2;
             else query = query1; 
@@ -76,8 +81,10 @@ class Admin {
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, password);
+            ps.setString(4, phone);
+            if(edit) ps.setInt(5, id);
 
-            if(edit) ps.setInt(4, id);
+            ps.executeUpdate();
 
             con.close();
 
@@ -89,7 +96,6 @@ class Admin {
 
     //displaying accountants
     private void displayAccountant() {
-
         try (Connection con = DataBaseConnection.getConnection()) {
            
             String query = "SELECT id, name, email, phone FROM accountant";
@@ -97,28 +103,23 @@ class Admin {
             ResultSet rs = ps.executeQuery();
             
             if (!rs.isBeforeFirst()) { 
-                System.out.println("No student records found.");
+                System.out.println("No accountant records found.");
                 return;
             }
-
+    
             System.out.println("\nList of Accountants:");
-            System.out.printf("%-5s %-20s %-25s %-15s%n", "ID", "Name", "Email", "Phone");
-            System.out.println("-------------------------------------------");
-
-            boolean hasData = false;
-
+            System.out.printf("%-5s %-20s %-25s %-15s\n", "ID", "Name", "Email", "Phone");
+            System.out.println("--------------------------------------------------------------");
+    
             while (rs.next()) {
-                hasData = true;
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String email = rs.getString("email");
                 String phone = rs.getString("phone");
-
-                System.out.printf("%-5d %-20s %-25s %-15s%n", id, name, email, phone);
+    
+                System.out.printf("%-5d %-20s %-25s %-15s\n", id, name, email, phone);
             }
-
-            con.close();
-
+    
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -225,11 +226,11 @@ class Accountant {
             System.out.print("Enter Phone Number: ");
             String phone = sc.nextLine();
 
-            String query = "", query1 = "INSERT INTO student(name, email, course, fee, paid, due, address, phone) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", query2 = "UPDATE accountant SET name = ?, email = ?, course = ?, fee = ?, paid = ?, due = ?, address = ?, phone = ? WHERE id = ?";
+            String query = "", query1 = "INSERT INTO student(name, email, course, fee, paid, due, address, phone) VALUES(?, ?, ?, ?, ?, ?, ?, ?)", query2 = "UPDATE student SET name = ?, email = ?, course = ?, fee = ?, paid = ?, due = ?, address = ?, phone = ? WHERE id = ?";
             
             if(edit) query = query2;
             else query = query1;
-            
+
             PreparedStatement ps = con.prepareStatement(query);
             
             ps.setString(1, name);
@@ -270,7 +271,7 @@ class Accountant {
             System.out.println("\nStudent Details:");
             System.out.printf("%-5s %-20s %-25s %-15s %-10s %-10s %-10s %-30s %-15s\n", 
                 "ID", "Name", "Email", "Course", "Fee", "Paid", "Due", "Address", "Phone");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------");
 
             while (rs.next()) {
                 int id = rs.getInt("id");
