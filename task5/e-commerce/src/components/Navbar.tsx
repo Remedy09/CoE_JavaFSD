@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -28,7 +29,7 @@ const Navbar = () => {
 
       {/* Right - Cart & Account */}
       <div className="navbar-right">
-        <button className="sign-in">Sign In</button>
+        {/* <button className="sign-in">Sign In</button> */}
         <span className="cart-icon">🛒</span>
       </div>
 

@@ -19,7 +19,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: #131921;
+    background-color: #FFF8FA;
     padding: 12px 20px;
     position: fixed;
     top: 0;
@@ -36,7 +36,7 @@ html, body {
 .logo {
     font-size: 1.6rem;
     font-weight: bold;
-    color: white;
+    color: #E10134;
     margin-left: 10px;
 }
 
@@ -55,7 +55,7 @@ html, body {
     max-width: 600px;
     border-radius: 4px;
     overflow: hidden;
-    background: white;
+    background: #F0CCC2;
 }
 
 .navbar-search input {
@@ -65,13 +65,15 @@ html, body {
     outline: none;
     font-size: 1rem;
     border-radius: 4px 0 0 4px;
+    background: #F0CCC2;
+    color: #654B52;
 }
 
 .search-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #febd69;
+    background-color: #E10134;
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -85,7 +87,7 @@ html, body {
 }
 
 .search-btn:hover {
-    background-color: #f5a742;
+    background-color: #B90027;
 }
 
 .search-btn:hover svg {
@@ -99,18 +101,18 @@ html, body {
     gap: 15px;
 }
 
-.sign-in {
+/* .sign-in {
     background: none;
     border: none;
-    color: white;
+    color: #E10134;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .sign-in:hover {
-    color: #febd69;
-}
+    color: #E10134;
+} */
 
 .cart-icon {
     font-size: 1.8rem;
