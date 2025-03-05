@@ -6,7 +6,8 @@ enum Facility {
 
 class ConferenceRoom {
     private String id;
-    private String name;
+    private String name; 
+    
     private int capacity;
     private EnumSet<Facility> amenities;
 
