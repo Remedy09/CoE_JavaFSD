@@ -1,0 +1,17 @@
+<div class="pipes-container">
+  <h2>Angular Pipes Example</h2>
+
+  <!-- Built-in Pipes -->
+  <h3>Inbuilt Pipes</h3>
+  <p>Original: {{ title }}</p>
+  <p>Uppercase: {{ title | uppercase }}</p>
+  <p>Lowercase: {{ title | lowercase }}</p>
+  <p>Date: {{ today | date:'fullDate' }}</p>
+  <p>Currency: {{ amount | currency:'INR' }}</p>
+  <p>Percentage: {{ percentage | percent }}</p>
+
+  <!-- Custom Pipe -->
+  <h3>Custom Pipe Example</h3>
+  <p>Original: {{ title }}</p>
+  <p>Reversed: {{ title | reverseText }}</p>
+</div>

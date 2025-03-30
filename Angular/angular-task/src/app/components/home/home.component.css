@@ -1,0 +1,74 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Page Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Center Title and Paragraph */
+h1, p, button {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #333;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+/* Buttons */
+.button-container button {
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Button Colors */
+.button-container button:nth-child(1) { background-color: #007bff; color: white; }  /* Directive */
+.button-container button:nth-child(2) { background-color: #28a745; color: white; }  /* Local Storage */
+.button-container button:nth-child(3) { background-color: #ffc107; color: black; }  /* Settings */
+.button-container button:nth-child(4) { background-color: #17a2b8; color: white; }  /* Help */
+.button-container button:nth-child(5) { background-color: #dc3545; color: white; }  /* Logout */
+
+/* Hover Effects */
+.button-container button:hover {
+  opacity: 0.8;
+}
+
+/* Display Field */
+.display-field {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Section Styling */
+.display-field div {
+  padding: 10px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply fade-in effect when switching content */
+.display-field div.ng-trigger {
+  animation: fadeIn 0.5s ease-in-out;
+}

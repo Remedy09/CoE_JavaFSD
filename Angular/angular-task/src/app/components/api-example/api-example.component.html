@@ -1,0 +1,13 @@
+<div class="api-container">
+  <h2>API Call Example</h2>
+  <button (click)="fetchData()">Fetch Data</button>
+
+  <ul *ngIf="posts.length > 0">
+    <li *ngFor="let post of posts">
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.body }}</p>
+    </li>
+  </ul>
+
+  <p *ngIf="posts.length === 0">No data loaded yet.</p>
+</div>

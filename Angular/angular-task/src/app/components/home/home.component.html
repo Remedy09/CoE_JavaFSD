@@ -1,0 +1,25 @@
+<h1>Welcome, you have logged in</h1>
+
+<!-- Button Container -->
+<div class="button-container">
+  <button (click)="showContent('directive')">Diretive</button>
+  <button (click)="showContent('storage')">Local Storage</button>
+  <button (click)="showContent('api')">Api Services</button>
+  <button (click)="showContent('pipe')">Pipe</button>
+  <button (click)="logout()">Logout</button>
+</div>
+
+<!-- Display Content Using ngSwitch -->
+<div class="display-field" [ngSwitch]="activeContent">
+
+  <app-directive-example *ngSwitchCase="'directive'"></app-directive-example>
+  <app-local-storage-example *ngSwitchCase="'storage'"></app-local-storage-example>
+  <app-api-example *ngSwitchCase="'api'"></app-api-example>
+  <app-pipes-example *ngSwitchCase="'pipe'"></app-pipes-example>
+
+
+
+  <div *ngSwitchDefault>
+    <p>Please select a section above.</p>
+  </div>
+</div>

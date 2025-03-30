@@ -1,0 +1,16 @@
+<div class="local-storage-container">
+  <h2>Local Storage Example</h2>
+
+  <p><strong>Counter Value:</strong> {{ counter }}</p>
+
+  <div class="button-container">
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+  </div>
+
+  <div class="button-container">
+    <button (click)="saveData()">Store</button>
+    <button (click)="loadData()">Load</button>
+    <button (click)="deleteData()">Delete</button>
+  </div>
+</div>
